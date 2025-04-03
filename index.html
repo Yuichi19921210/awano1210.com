@@ -3,6 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>サンプルフォーム</title>
+
+  <!-- Microsoft Web Tracking Script -->
+  <script>
+    (function (a, t, i) {
+      var e = "MSCI";
+      var s = "Analytics";
+      var o = e + "queue";
+      a[o] = a[o] || [];
+      var r = a[e] || function (n) {
+        var t = {}; t[s] = {};
+        function e(e) {
+          while (e.length) {
+            var r = e.pop();
+            t[s][r] = function (e) {
+              return function () {
+                a[o].push([e, n, arguments])
+              }
+            }(r)
+          }
+        }
+        var r = "track";
+        var i = "set";
+        e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]);
+        return t
+      }(i.name);
+      var n = i.name;
+      if (!a[e]) {
+        a[n] = r[s];
+        a[o].push(["new", n]);
+        setTimeout(function () {
+          var e = "script";
+          var r = t.createElement(e);
+          r.async = 1;
+          r.src = i.src;
+          var n = t.getElementsByTagName(e)[0];
+          n.parentNode.insertBefore(r, n)
+        }, 1)
+      } else {
+        a[n] = new r[s]
+      }
+      if (i.user) {
+        a[n].setUser(i.user)
+      }
+      if (i.props) {
+        for (var c in i.props) {
+          a[n].setProperty(c, i.props[c])
+        }
+      }
+      a[n].initialize(i.cfg)
+    })(window, document, {
+      src: "https://cxppjpn1rdrect01sa02cdn.blob.core.windows.net/webtracking/WebTracking/WebTracking.bundle.js",
+      name: "MSCI",
+      cfg: {
+        ingestionKey: "8ca22f5413164d539dea2e6a447a2296-eb7c78fc-b99a-43da-b3f5-21b2185bb134-7172",
+        endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+        autoCapture: {
+          view: true,
+          click: true
+        },
+        orgInfo: {
+          orgId: "d61399ca-e27f-45c5-9da2-958a3475a0b1",
+          orgTenantId: "f45d97e7-6d68-497b-8ff3-dc640d3317a1",
+          orgGeo: "JPN"
+        }
+      }
+    });
+  </script>
+
+  <!-- フォームキャプチャーのスクリプトも忘れずに！ -->
   <script src="https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/jpn/FormCapture/FormCapture.bundle.js"></script>
 </head>
 <body>
@@ -39,7 +108,7 @@
         ];
 
         form.addEventListener("submit", (e) => {
-          e.preventDefault(); // 👈 忘れず追加！
+          e.preventDefault();
           const serializedForm = d365mktformcapture.serializeForm(form, mappings);
           const payload = serializedForm.SerializedForm.build();
 
