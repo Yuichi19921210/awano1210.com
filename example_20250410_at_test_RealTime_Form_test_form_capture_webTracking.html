@@ -197,79 +197,34 @@
 
 
 	</style>
+	<script src="https://assets.adobedtm.com/794ce356cd97/4f0a8778f8f7/launch-903f55960fab-development.min.js"></script>
 
 	<!-- Dynamics365CI アウトバウンドマーケティングのタグ -->
 	<!-- <div id="dCCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk" style="width: 0px; height: 0px;"><img id="iCCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk" width="0" height="0" src="https://e18760d419654be6b7545bdebaafc8e1.svc.dynamics.com/t/v/CCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk/_RoNbMWPwPG12feHMWXy1p-S5evbqL5qPDInV_U0/apx5G8sU?ad=https%3A%2F%2Fwww.softbanktech.co.jp%2F&amp;rf=https%3A%2F%2Fwww.google.com%2F&amp;id=170304873"></div>
 	<div class="d365-mkt-config" style="display:none" data-website-id="CCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk" data-hostname="e18760d419654be6b7545bdebaafc8e1.svc.dynamics.com"></div> -->
 
 	
-  <!-- Microsoft Web Tracking Script -->
-  <!-- Microsoft Web Tracking Script -->
-  <script>
-    (function (a, t, i) {
-      var e = "MSCI";
-      var s = "Analytics";
-      var o = e + "queue";
-      a[o] = a[o] || [];
-      var r = a[e] || function (n) {
-        var t = {}; t[s] = {};
-        function e(e) {
-          while (e.length) {
-            var r = e.pop();
-            t[s][r] = function (e) {
-              return function () {
-                a[o].push([e, n, arguments])
-              }
-            }(r)
-          }
-        }
-        var r = "track";
-        var i = "set";
-        e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]);
-        return t
-      }(i.name);
-      var n = i.name;
-      if (!a[e]) {
-        a[n] = r[s];
-        a[o].push(["new", n]);
-        setTimeout(function () {
-          var e = "script";
-          var r = t.createElement(e);
-          r.async = 1;
-          r.src = i.src;
-          var n = t.getElementsByTagName(e)[0];
-          n.parentNode.insertBefore(r, n)
-        }, 1)
-      } else {
-        a[n] = new r[s]
-      }
-      if (i.user) {
-        a[n].setUser(i.user)
-      }
-      if (i.props) {
-        for (var c in i.props) {
-          a[n].setProperty(c, i.props[c])
-        }
-      }
-      a[n].initialize(i.cfg)
-    })(window, document, {
-      src: "https://cxppjpn1rdrect01sa02cdn.blob.core.windows.net/webtracking/WebTracking/WebTracking.bundle.js",
-      name: "MSCI",
-      cfg: {
-        ingestionKey: "8ca22f5413164d539dea2e6a447a2296-eb7c78fc-b99a-43da-b3f5-21b2185bb134-7172",
-        endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
-        autoCapture: {
-          view: true,
-          click: true
-        },
-        orgInfo: {
-          orgId: "d61399ca-e27f-45c5-9da2-958a3475a0b1",
-          orgTenantId: "f45d97e7-6d68-497b-8ff3-dc640d3317a1",
-          orgGeo: "JPN"
-        }
-      }
-    });
-  </script>
+	<script>
+		(function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+
+			src: "https://cxppjpn1rdrect01sa02cdn.blob.core.windows.net/webtracking/WebTracking/WebTracking.bundle.js",
+			name: "MSCI",
+			cfg: {
+
+				ingestionKey: "924c5fde222c437c8b89a50214bf522c-c29e59d0-1427-4675-839a-134d71b360ee-6988",
+				endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+				autoCapture: {
+					view: true,
+					click: true
+				},
+				orgInfo: {
+					orgId: "e88f4094-2f05-4a31-9d90-c8be7123774a",
+					orgTenantId: "d0ca0881-5acf-4739-90b7-947fda415455",
+					orgGeo: "JPN"
+				}
+			}
+		});
+	</script>
 
 </head>
 <body>
@@ -401,16 +356,26 @@
 		<script>
 			// NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
 		
-			d365mktformcapture.waitForElement("#form1") // example: "#form1" as a selector for form with id="form1"
+			d365mktformcapture.waitForElement("form.form") // example: "#form1" as a selector for form with id="form1"
 			.then(form => {
 				const mappings = [
+					{
+						FormFieldName: "FormFieldName_lastname",
+						DataverseFieldName: "lastname",
+					},
 					{
 						FormFieldName: "FormFieldName_firstname",
 						DataverseFieldName: "firstname",
 					},
 					{
-						FormFieldName: "FormFieldName_lastname",
-						DataverseFieldName: "lastname",
+						FormFieldName: "FormFieldName_crb08_test_field_2",
+						DataverseFieldName: "crb08_test_field_2",
+						DataverseFieldValue: [
+							{ FormValue: "0", DataverseValue: "0" }, // 選択してください
+							{ FormValue: "1", DataverseValue: "1" }, // オプション１
+							{ FormValue: "2", DataverseValue: "2" }, // オプション２
+							{ FormValue: "3", DataverseValue: "3" }, // オプション３
+						],
 					},
 					{
 						FormFieldName: "FormFieldName_emailaddress",
@@ -419,15 +384,14 @@
 		
 				];
 		
-				form.addEventListener("submit", (e) => {
-					//e.preventDefault();
+				form.addEventListener("submit",async  (e) => {
 					const serializedForm = d365mktformcapture.serializeForm(form, mappings);
 					// console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
 					const payload = serializedForm.SerializedForm.build();
 		
 					const captureConfig = {
-						FormId: "24f7bac9-ca15-f011-9989-000d3a401f40",
-						FormApiUrl: "https://public-jpn.mkt.dynamics.com/api/v1.0/orgs/d61399ca-e27f-45c5-9da2-958a3475a0b1/landingpageforms"
+						FormId: "bd2837e6-2911-f011-9989-6045bd54d2ca",
+						FormApiUrl: "https://public-jpn.mkt.dynamics.com/api/v1.0/orgs/e88f4094-2f05-4a31-9d90-c8be7123774a/landingpageforms"
 					}
 					await d365mktformcapture.submitForm(captureConfig, payload);
 				}, true);
@@ -435,5 +399,8 @@
 		</script>
 		<!-- [end] D365CIリアルタイム体験_フォームキャプチャコード -->
 
+	<script>
+		_satellite.pageBottom();
+	</script>
 </body>
 </html>
