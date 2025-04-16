@@ -420,7 +420,7 @@
 				];
 		
 				form.addEventListener("submit", (e) => {
-					e.preventDefault();
+					//e.preventDefault();
 					const serializedForm = d365mktformcapture.serializeForm(form, mappings);
 					// console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
 					const payload = serializedForm.SerializedForm.build();
@@ -429,7 +429,7 @@
 						FormId: "24f7bac9-ca15-f011-9989-000d3a401f40",
 						FormApiUrl: "https://public-jpn.mkt.dynamics.com/api/v1.0/orgs/d61399ca-e27f-45c5-9da2-958a3475a0b1/landingpageforms"
 					}
-					d365mktformcapture.submitForm(captureConfig, payload);
+					await d365mktformcapture.submitForm(captureConfig, payload);
 				}, true);
 			});
 		</script>
