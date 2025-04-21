@@ -1,406 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamics 365 Customer Insights フォームテスト</title>
-    <style type="text/css">
+  <meta charset="UTF-8">
+  <title>サンプルフォーム</title>
 
-		/* ======================================= */
-		/* ▼横幅600px～849pxの場合に適用されるCSS */	/* ※この部分の解説は、記事4ページ目をご参照下さい。 */
-		/* ======================================= */
-		@media (min-width: 600px) and (max-width: 849px) {
-
-			/* ▼サイドカラムの装飾 */
-			.side-column {
-				text-align: center;   /* 内部のインラインブロックを中央に寄せる */
-				padding: 1em 0.2em;   /* 上下に若干の余白を設ける */
-                display: flex;
-                justify-content: center;
-			}
-			/* ▼サイドカラムの内側だけで各ボックスを2段組にする */
-			.side-box {
-				display: inline-block;  /* インラインブロック化 */
-				width: 48%;             /* 横幅を48%に(2段組にするため) */
-				vertical-align: top;    /* 横並びのブロック間では上端を揃える */
-				margin: 0;              /* 外側の余白をなくす */
-				text-align: left;       /* ボックス内部は左寄せ */
-			}
-
-		}
-
-		/* ==================================== */
-		/* ▼横幅850px以上の場合に適用されるCSS */	/* ※この部分の解説は、記事3ページ目をご参照下さい。 */
-		/* ==================================== */
-		@media (min-width: 850px) {
-
-			/* ▼ページレイアウト */
-			.page-cover {
-				width: 100%;
-				background-color: #a8bff1;	/* ※背景色は「短い段」の背景色と同じにする必要がある（※これ以外の配色は、forsample.css ファイル内に記述しています。） */
-			}
-			.page-cover:after {
-				/* Mini Clearfix */
-				content: "";
-				clear: both;
-				display: block;
-			}
-
-			/* ▼メインカラムの装飾 */
-			.main-column {
-				margin-right: 30%;
-			}
-			/* ▼サイドカラムの装飾 */
-			.side-column {
-				float: right;
-				width: 25%;
-                display: flex;
-                justify-content: center;
-                font-size: 30px;
-			}
-
-		}
-        body {
-		padding: 0;
-		margin: 0;
-	}
-
-	/* -------------------- */
-	/* ▼メインカラムの装飾 */
-	/* -------------------- */
-	.main-column {
-		background: #cdcfd4ba;	/* 背景色(淡い黄色) */
-		padding: 1px 0px;		/* 内側の余白(上下に1px) */
-	}
-	.main-box {
-		margin: 1em;
-		line-height: 1.5;
-	}
-	.main-box ul li {
-		line-height: 1.8;
-	}
-	.main-box h3 {
-		margin-top: 1em;
-		padding-top: 1em;
-		border-top: 1px dashed gray;
-	}
-
-	/* -------------------- */
-	/* ▼サイドカラムの装飾 */
-	/* -------------------- */
-	.side-column {
-		background-color: #bada55;	/* 背景色(淡い緑色) */
-		padding: 1px 0px;			/* 内側の余白(上下に1px) */
-	}
-	.side-box {
-		margin: 1em;
-		border: 1px solid white;
-		border-radius: 0px 0px 10px 10px;
-		background-color: #c9e177;
-	}
-	.side-box h2 {
-		margin: 0px;
-		padding: 0px 5px;
-		font-size: 1.2em;
-		background-color: green;
-		color: white;
-	}
-	.side-box p {
-		padding: 0px 0.5em;
-	}
-
-	/* ------------------ */
-	/* ▼ヘッダ部分の装飾 */
-	.pageheader {
-		background-color: #e5eff8;
-		margin: 0px;
-		padding: 1em;
-		border-bottom: 1px solid #0000cc;
-	}
-
-	/* ------------------ */
-	/* ▼フッタ部分の装飾 */
-	.pagefooter {
-		background-color: #e5eff8;
-		margin: 0px;
-		padding: 1em;
-		border-top: 1px solid #cc0000;
-	}
-
-	/* フォーム用 */
-	.lead-form{
-		text-align: center;
-		font-size:20px;
-	}
-	form{
-		width:460px;
-		margin:0 auto;
-	}
-	.item{
-		overflow: hidden;
-		margin-bottom: 20px;
-	}
-	.label{
-		float: left;
-		margin-right: 20px;
-		width:135px;
-		border-left: solid 3px #2a5ece;
-		padding-left: 10px;
-	}
-	.inputs{
-		float: left;
-		width:300px;
-	}
-	input[type="text"],input[type="email"]{
-		border: solid 1px #aaa;
-		border-radius:5px;
-		padding:10px;
-		font-size: 15px;
-	}
-	textarea{
-		border: solid 1px #aaa;
-		border-radius:5px;
-		padding: 10px;
-		height: 160px;
-		font-size: 15px;
-	}
-	.btn-area{
-		text-align: center;
-	}
-	input[type="submit"]{
-		background: #e0505c;
-		border: none;
-		color: white;
-		font-size:17px;
-		font-weight:bold;
-		padding: 10px 20px;
-		margin: 0 5px;
-	}
-	input[type="reset"]{
-		background: #aaa;
-		border: none;
-		color: white;
-		font-size:17px;
-		font-weight:bold;
-		padding: 10px 20px;
-		margin: 0 5px;
-	}
-	form{
-		padding: 0.5em 1em;
-		margin: 2em 0;
-		color: #5d627b;
-		background: white;
-		border-top: solid 5px #5d627b;
-		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-	}
-
-
-	</style>
-	<script src="https://assets.adobedtm.com/794ce356cd97/4f0a8778f8f7/launch-903f55960fab-development.min.js"></script>
-
-	<!-- Dynamics365CI アウトバウンドマーケティングのタグ -->
-	<!-- <div id="dCCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk" style="width: 0px; height: 0px;"><img id="iCCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk" width="0" height="0" src="https://e18760d419654be6b7545bdebaafc8e1.svc.dynamics.com/t/v/CCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk/_RoNbMWPwPG12feHMWXy1p-S5evbqL5qPDInV_U0/apx5G8sU?ad=https%3A%2F%2Fwww.softbanktech.co.jp%2F&amp;rf=https%3A%2F%2Fwww.google.com%2F&amp;id=170304873"></div>
-	<div class="d365-mkt-config" style="display:none" data-website-id="CCczkZtEahIk-A6-gIQP_aM3NqM5urN0aSGP5Vf_9Gk" data-hostname="e18760d419654be6b7545bdebaafc8e1.svc.dynamics.com"></div> -->
-
-	
-	<script>
-		(function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
-
-			src: "https://cxppjpn1rdrect01sa02cdn.blob.core.windows.net/webtracking/WebTracking/WebTracking.bundle.js",
-			name: "MSCI",
-			cfg: {
-
-				ingestionKey: "924c5fde222c437c8b89a50214bf522c-c29e59d0-1427-4675-839a-134d71b360ee-6988",
-				endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
-				autoCapture: {
-					view: true,
-					click: true
-				},
-				orgInfo: {
-					orgId: "e88f4094-2f05-4a31-9d90-c8be7123774a",
-					orgTenantId: "d0ca0881-5acf-4739-90b7-947fda415455",
-					orgGeo: "JPN"
-				}
-			}
-		});
-	</script>
-
+  <!-- フォームキャプチャーのスクリプトも忘れずに！ -->
+  <!--<script src="https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/jpn/FormCapture/FormCapture.bundle.js"></script> -->
 </head>
 <body>
-    <h2>　D365 CI リアルタイム体験_フォームキャプチャテスト</h2>
-	<div class="pageheader">
-		
-		<form class="form" id="form1">
-			<div class="item">
-				<label class="label" style="display: none;">姓</label>
-				<input class="inputs" type="hidden" name="FormFieldName_lastname" value="非表示姓">
-			</div>
+  <h2>お問い合わせフォーム</h2>
+  <form id="form1">
+    <label for="firstname">First Name:</label><br>
+    <input type="text" id="firstname" name="firstname" required><br><br>
 
-			<div class="item">
-				<label class="label">名</label>
-				<input class="inputs" type="text" name="FormFieldName_firstname">
-			</div>
+    <label for="lastname">Last Name:</label><br>
+    <input type="text" id="lastname" name="lastname" required><br><br>
 
-			<div class="item">
-				<label class="label">テストフィールド</label>
-				<br>
-				<select name="FormFieldName_crb08_test_field_2">
-					<option value="0">選択してください</option>
-					<option value="1">オプション１</option>
-					<option value="2">オプション２</option>
-					<option value="3">オプション３</option>
-				</select>
-			</div>
+    <label for="emailaddress1">Email Address:</label><br>
+    <input type="email" id="emailaddress1" name="emailaddress1" required><br><br>
 
-			<div class="item">
-				<label class="label">メールアドレス</label>
-				<input class="inputs" type="email" name="FormFieldName_emailaddress">
-			</div>
-			
+    <button type="submit">送信</button>
+  </form>
 
-			<div class="btn-area">
-				<input type="submit" value="送信する"><input type="reset" value="リセット">
-			</div>
-		</form>
+  <script src="https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/jpn/FormCapture/FormCapture.bundle.js"></script>
+  <script>
+    d365mktformcapture.waitForElement("#form1")
+      .then(form => {
+        const mappings = [
+          {
+            FormFieldName: "firstname",
+            DataverseFieldName: "firstname",
+          },
+          {
+            FormFieldName: "lastname",
+            DataverseFieldName: "lastname",
+          },
+          {
+            FormFieldName: "emailaddress1",
+            DataverseFieldName: "emailaddress1",
+          },
+        ];
 
-		<br>
-        <br>
-        <br>
-        <br>
-	</div>
+        form.addEventListener("submit", (e) => {
+        //  e.preventDefault();
+          const serializedForm = d365mktformcapture.serializeForm(form, mappings);
+          const payload = serializedForm.SerializedForm.build();
 
-	<!-- ======================= -->
-	<!-- ▼2カラムレイアウト領域 -->
-	<!-- ======================= -->
-	<div class="page-cover">
-
-		<!-- ====================== -->
-		<!-- ▼サイドを作るブロック -->
-		<!-- ====================== -->
-		<div class="side-column">
-            
-            <p>
-                <strong>要素1</strong>
-            </p>
-            
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-
-		</div>
-		<!-- ====================== -->
-		<!-- ▲サイドを作るブロック -->
-		<!-- ====================== -->
-
-		<!-- ====================== -->
-		<!-- ▼メインを作るブロック -->
-		<!-- ====================== -->
-
-		<!-- ====================== -->
-		<!-- ▲メインを作るブロック -->
-		<!-- ====================== -->
-
-	</div>
-	<!-- ======================= -->
-	<!-- ▲2カラムレイアウト領域 -->
-	
-	<div>
-		<p>
-			<strong>要素2</strong>
-		</p>
-		<a href = "http://localhost/AT_verification/20241121/at_test_conversion.html" target="_blank">コンバージョンリンク</a>
-	</div>
-	<br>
-	<div id="element_2">
-
-	</div>
-	<!-- ======================= -->
-
-	<div class="pagefooter">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-	</div>
-			
-		<!-- [start] D365CIリアルタイム体験_フォームキャプチャコード -->
-		<script src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/jpn/FormCapture/FormCapture.bundle.js'></script>
-		<script>
-			// NOTE: for reference see https://go.microsoft.com/fwlink/?linkid=2250770
-		
-			d365mktformcapture.waitForElement("form.form") // example: "#form1" as a selector for form with id="form1"
-			.then(form => {
-				const mappings = [
-					{
-						FormFieldName: "FormFieldName_lastname",
-						DataverseFieldName: "lastname",
-					},
-					{
-						FormFieldName: "FormFieldName_firstname",
-						DataverseFieldName: "firstname",
-					},
-					{
-						FormFieldName: "FormFieldName_crb08_test_field_2",
-						DataverseFieldName: "crb08_test_field_2",
-						DataverseFieldValue: [
-							{ FormValue: "0", DataverseValue: "0" }, // 選択してください
-							{ FormValue: "1", DataverseValue: "1" }, // オプション１
-							{ FormValue: "2", DataverseValue: "2" }, // オプション２
-							{ FormValue: "3", DataverseValue: "3" }, // オプション３
-						],
-					},
-					{
-						FormFieldName: "FormFieldName_emailaddress",
-						DataverseFieldName: "emailaddress1",
-					},
-		
-				];
-		
-				form.addEventListener("submit",async  (e) => {
-					const serializedForm = d365mktformcapture.serializeForm(form, mappings);
-					// console.log(JSON.stringify(serializedForm)); // NOTE: enable for debugging
-					const payload = serializedForm.SerializedForm.build();
-		
-					const captureConfig = {
-						FormId: "bd2837e6-2911-f011-9989-6045bd54d2ca",
-						FormApiUrl: "https://public-jpn.mkt.dynamics.com/api/v1.0/orgs/e88f4094-2f05-4a31-9d90-c8be7123774a/landingpageforms"
-					}
-					await d365mktformcapture.submitForm(captureConfig, payload);
-				}, true);
-			});
-		</script>
-		<!-- [end] D365CIリアルタイム体験_フォームキャプチャコード -->
-
-	<script>
-		_satellite.pageBottom();
-	</script>
+          const captureConfig = {
+                FormId: "24f7bac9-ca15-f011-9989-000d3a401f40",
+                FormApiUrl: "https://public-jpn.mkt.dynamics.com/api/v1.0/orgs/d61399ca-e27f-45c5-9da2-958a3475a0b1/landingpageforms"
+            };
+          d365mktformcapture.submitForm(captureConfig, payload);
+        }, true);
+      });
+  </script>
 </body>
 </html>
